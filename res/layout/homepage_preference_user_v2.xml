@@ -69,8 +69,8 @@
 
         <TextView
             android:id="@android:id/summary"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@android:id/title"
             android:layout_alignStart="@android:id/title"
             android:layout_gravity="start"
@@ -78,7 +78,6 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/top_level_preference_text_color_secondary"
             android:maxLines="4"
-            android:visibility="gone"
             android:hyphenationFrequency="normalFast"
             android:lineBreakWordStyle="phrase"/>
     </RelativeLayout>
