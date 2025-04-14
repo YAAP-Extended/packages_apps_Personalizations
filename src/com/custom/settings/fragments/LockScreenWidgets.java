@@ -18,6 +18,8 @@ package com.custom.settings.fragments;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -53,6 +55,9 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
     private static final String KEY_APPLY_CHANGE_BUTTON = "apply_change_button";
 
     private static final String LOCKSCREEN_WIDGETS_EXTRAS_KEY = "lockscreen_widgets_extras";
+    private static final String LOCKSCREEN_WIDGETS_ENABLED_KEY = "lockscreen_widgets_enabled";
+    
+    private final Handler mHandler = new Handler(Looper.getMainLooper());
 
     private Preference mExtraWidget1;
     private Preference mExtraWidget2;
@@ -101,7 +106,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
                 mExtraWidget3, 
                 mExtraWidget4);
 
-        mLockScreenWidgetsEnabledPref = findPreference("lockscreen_widgets_enabled");
+        mLockScreenWidgetsEnabledPref = findPreference(LOCKSCREEN_WIDGETS_ENABLED_KEY);
 
         LayoutPreference layoutPreference = findPreference(KEY_APPLY_CHANGE_BUTTON);
         mApplyChange = layoutPreference.findViewById(R.id.apply_change);
@@ -161,6 +166,40 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
             boolean isEnabled = (boolean) newValue;
             showWidgetPreferences(isEnabled);
             mLockScreenWidgetsEnabledPref.setChecked(isEnabled);
+
+            ContentResolver resolver = getContext().getContentResolver();
+            int userId = UserHandle.USER_CURRENT;
+
+            // hacky way to update the clock size but works until i figure out why SystemSettings flow update is ignored
+            Settings.System.putIntForUser(
+                resolver,
+                LOCKSCREEN_WIDGETS_ENABLED_KEY,
+                isEnabled ? 1 : 0,
+                userId
+            );
+            int defaultDoubleLineClock = getContext().getResources().getInteger(
+                com.android.internal.R.integer.config_doublelineClockDefault
+            );
+            int currentValue = Settings.Secure.getIntForUser(
+                resolver,
+                Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK,
+                defaultDoubleLineClock,
+                userId
+            );
+            Settings.Secure.putIntForUser(
+                resolver,
+                Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK,
+                currentValue == 1 ? 0 : 1,
+                userId
+            );
+            mHandler.postDelayed(() -> {
+                Settings.Secure.putIntForUser(
+                    resolver,
+                    Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK,
+                    currentValue,
+                    userId
+                );
+            }, 100);
             return true;
         }
         return false;
