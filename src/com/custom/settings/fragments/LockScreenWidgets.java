@@ -23,8 +23,6 @@ import android.os.Looper;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -35,7 +33,6 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-import com.android.settingslib.widget.LayoutPreference;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -52,24 +49,21 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
     private static final String EXTRA_WIDGET_2_KEY = "custom_widgets2";
     private static final String EXTRA_WIDGET_3_KEY = "custom_widgets3";
     private static final String EXTRA_WIDGET_4_KEY = "custom_widgets4";
-    private static final String KEY_APPLY_CHANGE_BUTTON = "apply_change_button";
 
     private static final String LOCKSCREEN_WIDGETS_EXTRAS_KEY = "lockscreen_widgets_extras";
     private static final String LOCKSCREEN_WIDGETS_ENABLED_KEY = "lockscreen_widgets_enabled";
-    
+
     private final Handler mHandler = new Handler(Looper.getMainLooper());
 
     private Preference mExtraWidget1;
     private Preference mExtraWidget2;
     private Preference mExtraWidget3;
     private Preference mExtraWidget4;
-    private Button mApplyChange;
-    
+
     private SwitchPreferenceCompat mLockScreenWidgetsEnabledPref;
     private List<Preference> mWidgetPreferences;
-    
-    private Map<Preference, String> widgetKeysMap = new HashMap<>();
-    private Map<Preference, String> initialWidgetKeysMap = new HashMap<>();
+
+    private final Map<Preference, String> widgetKeysMap = new HashMap<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,17 +75,15 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         setupListeners();
 
         boolean isLsWidgetsEnabled = Settings.System.getIntForUser(
-                getActivity().getContentResolver(), 
-                "lockscreen_widgets_enabled", 
-                0, 
+                getActivity().getContentResolver(),
+                LOCKSCREEN_WIDGETS_ENABLED_KEY,
+                0,
                 UserHandle.USER_CURRENT) != 0;
-        
+
         mLockScreenWidgetsEnabledPref.setChecked(isLsWidgetsEnabled);
         showWidgetPreferences(isLsWidgetsEnabled);
 
         loadInitialPreferences();
-        saveInitialPreferences();
-        mApplyChange.setEnabled(false);
     }
 
     private void initializePreferences() {
@@ -101,15 +93,13 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         mExtraWidget4 = findPreference(EXTRA_WIDGET_4_KEY);
 
         mWidgetPreferences = Arrays.asList(
-                mExtraWidget1, 
-                mExtraWidget2, 
-                mExtraWidget3, 
-                mExtraWidget4);
+                mExtraWidget1,
+                mExtraWidget2,
+                mExtraWidget3,
+                mExtraWidget4
+        );
 
         mLockScreenWidgetsEnabledPref = findPreference(LOCKSCREEN_WIDGETS_ENABLED_KEY);
-
-        LayoutPreference layoutPreference = findPreference(KEY_APPLY_CHANGE_BUTTON);
-        mApplyChange = layoutPreference.findViewById(R.id.apply_change);
     }
 
     private void setupListeners() {
@@ -118,15 +108,6 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
             widgetKeysMap.put(widgetPref, "");
         }
         mLockScreenWidgetsEnabledPref.setOnPreferenceChangeListener(this);
-
-        mApplyChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                updateWidgetPreferences();
-                saveInitialPreferences();
-                mApplyChange.setEnabled(false);
-            }
-        });
     }
 
     private void showWidgetPreferences(boolean isEnabled) {
@@ -160,7 +141,7 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (widgetKeysMap.containsKey(preference)) {
             widgetKeysMap.put(preference, String.valueOf(newValue));
-            mApplyChange.setEnabled(hasChanges());
+            updateWidgetPreferences();
             return true;
         } else if (preference == mLockScreenWidgetsEnabledPref) {
             boolean isEnabled = (boolean) newValue;
@@ -172,41 +153,48 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
 
             // hacky way to update the clock size but works until i figure out why SystemSettings flow update is ignored
             Settings.System.putIntForUser(
-                resolver,
-                LOCKSCREEN_WIDGETS_ENABLED_KEY,
-                isEnabled ? 1 : 0,
-                userId
+                    resolver,
+                    LOCKSCREEN_WIDGETS_ENABLED_KEY,
+                    isEnabled ? 1 : 0,
+                    userId
             );
+
             int defaultDoubleLineClock = getContext().getResources().getInteger(
-                com.android.internal.R.integer.config_doublelineClockDefault
+                    com.android.internal.R.integer.config_doublelineClockDefault
             );
             int currentValue = Settings.Secure.getIntForUser(
-                resolver,
-                Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK,
-                defaultDoubleLineClock,
-                userId
+                    resolver,
+                    Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK,
+                    defaultDoubleLineClock,
+                    userId
             );
             Settings.Secure.putIntForUser(
-                resolver,
-                Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK,
-                currentValue == 1 ? 0 : 1,
-                userId
+                    resolver,
+                    Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK,
+                    currentValue == 1 ? 0 : 1,
+                    userId
             );
             mHandler.postDelayed(() -> {
                 Settings.Secure.putIntForUser(
-                    resolver,
-                    Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK,
-                    currentValue,
-                    userId
+                        resolver,
+                        Settings.Secure.LOCKSCREEN_USE_DOUBLE_LINE_CLOCK,
+                        currentValue,
+                        userId
                 );
             }, 100);
+
             return true;
         }
         return false;
     }
 
     private void updateWidgetPreferences() {
-        List<String> extraWidgetsList = Arrays.asList(widgetKeysMap.get(mExtraWidget1), widgetKeysMap.get(mExtraWidget2), widgetKeysMap.get(mExtraWidget3), widgetKeysMap.get(mExtraWidget4));
+        List<String> extraWidgetsList = Arrays.asList(
+                widgetKeysMap.get(mExtraWidget1),
+                widgetKeysMap.get(mExtraWidget2),
+                widgetKeysMap.get(mExtraWidget3),
+                widgetKeysMap.get(mExtraWidget4)
+        );
 
         extraWidgetsList = replaceEmptyWithNone(extraWidgetsList);
 
@@ -220,26 +208,6 @@ public class LockScreenWidgets extends SettingsPreferenceFragment implements Pre
         return inputList.stream()
                 .map(s -> TextUtils.isEmpty(s) ? "none" : s)
                 .collect(Collectors.toList());
-    }
-
-    private void saveInitialPreferences() {
-        initialWidgetKeysMap.clear();
-        for (Preference widgetPref : mWidgetPreferences) {
-            String value = widgetKeysMap.get(widgetPref);
-            initialWidgetKeysMap.put(widgetPref, value);
-        }
-    }
-
-    private boolean hasChanges() {
-        for (Map.Entry<Preference, String> entry : initialWidgetKeysMap.entrySet()) {
-            Preference pref = entry.getKey();
-            String initialValue = entry.getValue();
-            String currentValue = widgetKeysMap.get(pref);
-            if (!TextUtils.equals(initialValue, currentValue)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
