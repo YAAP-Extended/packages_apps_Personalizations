@@ -1920,8 +1920,9 @@
     <string name="hide_from_launcher_summary">Prevent this application from showing up in any launcher. Requires a launcher restart for changes to take effect.</string>
 
     <!-- Doze on charge -->
-    <string name="doze_on_charge_title">Always show when charging</string>
-    <string name="doze_on_charge_summary">Display device is charging</string>
+    <string name="doze_on_charge_title">Always show time and info when charging</string>
+    <string name="doze_on_charge_summary">Display information when device is charging</string>
+    <string name="doze_on_charge_aod_suppressed">Always show time and info when charging is enabled. AOD will only activate while charging.</string>
 
     <!-- Volume link notification -->
     <string name="volume_link_notification_title">Link ring &amp; notification volumes</string>
