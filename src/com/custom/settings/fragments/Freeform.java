@@ -15,8 +15,13 @@
  */
 package com.custom.settings.fragments;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.provider.Settings;
+
+import androidx.preference.ListPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
@@ -32,6 +37,30 @@ public class Freeform extends SettingsPreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.custom_settings_freeform);
+
+        Context context = getContext();
+        ListPreference freeformPref = findPreference("freeform_launch_mode");
+
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+
+        if (!am.isHighEndGfx()) {
+            freeformPref.setEntries(new CharSequence[] {
+                    context.getResources().getString(R.string.freeform_launch_mode_1)
+            });
+            freeformPref.setEntryValues(new CharSequence[] {
+                    "0"
+            });
+
+            if ("1".equals(freeformPref.getValue())) {
+                freeformPref.setValue("0");
+            }
+            Settings.System.putIntForUser(
+                context.getContentResolver(),
+                "freeform_launch_mode",
+                0,
+                UserHandle.USER_CURRENT
+            );
+        }
     }
 
     @Override
