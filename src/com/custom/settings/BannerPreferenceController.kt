@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.custom.settings
 
 import android.content.Context
@@ -41,11 +42,11 @@ class BannerPreferenceController(context: Context) : AbstractPreferenceControlle
     val deviceNameText = bannerPreference.findViewById<TextView>(R.id.device_name)
     deviceNameText?.text = getDeviceName()
 
-    bannerPreference.findViewById<TextView>(R.id.banner_text)?.text = "AxionOS v${getOSVersion()}"
+    bannerPreference.findViewById<TextView>(R.id.banner_text)?.text = "YAAEXP v${getOSVersion()}"
 
     bannerPreference.findViewById<TextView>(R.id.storage_info)?.text =
       "${DeviceInfoUtil.getStorageUsed(mContext)} / ${DeviceInfoUtil.getStorageTotal(mContext)}"
-    bannerPreference.findViewById<TextView>(R.id.maintainer_info)?.text = getMaintainerName()
+    bannerPreference.findViewById<TextView>(R.id.maintainer_info)?.text = getMaintainerName(mContext)
     bannerPreference.findViewById<TextView>(R.id.processor_info)?.text =
       DeviceInfoUtil.getProcessor()
     bannerPreference.findViewById<TextView>(R.id.ram_info)?.text = DeviceInfoUtil.getTotalRam()
@@ -83,12 +84,11 @@ class BannerPreferenceController(context: Context) : AbstractPreferenceControlle
   }
 
   private fun getOSVersion(): String {
-    return android.os.SystemProperties.get("ro.lineage.build.version", "1.0")
+    return android.os.SystemProperties.get("ro.yaap.version", "1.0")
   }
 
-  private fun getMaintainerName(): String {
-    return android.os.SystemProperties.get("persist.sys.axion_maintainer", "Unknown")
-      .replace("_", " ")
+  private fun getMaintainerName(context: Context): String {
+    return context.getString(R.string.maintainer_name)
   }
 
   private fun getDeviceName(): String {
