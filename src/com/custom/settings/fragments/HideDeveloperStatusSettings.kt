@@ -42,7 +42,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.android.internal.util.axion.HideDeveloperStatusUtils
+import com.android.internal.util.yaap.HideDeveloperStatusUtils
 import com.android.settings.R
 import com.google.android.material.appbar.AppBarLayout
 

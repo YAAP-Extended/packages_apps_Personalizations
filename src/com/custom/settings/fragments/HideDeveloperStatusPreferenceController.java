@@ -20,7 +20,7 @@ import android.content.Context;
 import android.content.pm.UserInfo;
 import android.os.UserManager;
 
-import com.android.internal.util.axion.HideDeveloperStatusUtils;
+import com.android.internal.util.yaap.HideDeveloperStatusUtils;
 import com.android.settings.core.BasePreferenceController;
 
 import java.util.List;
