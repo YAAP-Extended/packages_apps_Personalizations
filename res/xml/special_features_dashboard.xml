@@ -25,13 +25,6 @@
         android:fragment="com.custom.settings.fragments.Misc" />
 
     <Preference
-        android:key="colors"
-        android:icon="@drawable/ic_color_bucket"
-        android:title="@string/monet_title"
-        android:summary="@string/monet_summary"
-        android:fragment="com.custom.settings.fragments.MonetSettings" />
-
-    <Preference
         android:key="system"
         android:icon="@drawable/ic_custom_settings_system_dashboard_white"
         android:summary="@string/system_settings_summary"

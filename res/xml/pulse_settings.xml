@@ -78,7 +78,7 @@
         android:summary="%s"
         android:defaultValue="0" />
 
-    <com.android.settings.preferences.colorpicker.SecureSettingColorPickerPreference
+    <com.custom.settings.preferences.colorpicker.ColorPickerPreference
         android:key="pulse_color_user"
         android:title="@string/pulse_color_user_title"
         android:defaultValue="0x92FFFFFF"/>

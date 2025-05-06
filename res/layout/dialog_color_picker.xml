@@ -42,7 +42,10 @@
             android:id="@+id/hex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/hex_hint" />
+            android:hint="@string/hex_hint"
+            android:imeOptions="actionDone"
+            android:maxLength="8"
+            android:singleLine="true" />
 
         <ImageButton
             android:id="@+id/enter"

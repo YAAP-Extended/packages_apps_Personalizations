@@ -50,17 +50,6 @@
         <item>3</item>
     </string-array>
 
-    <!-- Freeform mode  -->
-    <string-array name="freeform_launch_mode_entries">
-        <item>@string/freeform_launch_mode_1</item>
-        <item>@string/freeform_launch_mode_2</item>
-    </string-array>
-
-    <string-array name="freeform_launch_mode_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
     <!-- Brightness Bar style  -->
     <string-array name="brightness_bar_style_entries">
         <item>@string/color_default</item>
@@ -162,23 +151,6 @@
         <item>4</item>
     </string-array>
 
-    <!-- QS Header clock styles  -->
-    <string-array name="qs_header_clock_style_entries">
-        <item>@string/color_default</item>
-        <item>@string/qs_header_style1</item>
-        <item>@string/qs_header_style2</item>
-        <item>@string/qs_header_style3</item>
-        <item>@string/qs_header_style4</item>
-    </string-array>
-
-    <string-array name="qs_header_clock_style_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-
     <!-- Peek display style  -->
     <string-array name="peek_display_style_entries">
         <item>@string/color_default</item>
@@ -248,80 +220,6 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
-    </string-array>
-
-    <!-- Wallpaper Blur  -->
-    <string-array name="wallpaper_blur_entries">
-        <item>@string/disabled</item>
-        <item>@string/monet_engine_color_source_both</item>
-        <item>@string/monet_engine_color_source_lock</item>
-        <item>@string/monet_engine_color_source_home</item>
-    </string-array>
-
-    <string-array name="wallpaper_blur_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-    
-    <string-array name="wallpaper_blur_filter_entries">
-        <item>@string/glass_blur</item>
-        <item>@string/frosted_blur</item>
-    </string-array>
-
-    <string-array name="wallpaper_blur_filter_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
-    <!-- Monet color sources  -->
-    <string-array name="monet_engine_color_source_entries">
-        <item>@string/monet_engine_color_source_both</item>
-        <item>@string/monet_engine_color_source_home</item>
-        <item>@string/monet_engine_color_source_lock</item>
-        <item>@string/monet_engine_color_source_preset</item>
-    </string-array>
-
-    <string-array name="monet_engine_color_source_values" translatable="false">
-        <item>both</item>
-        <item>home_wallpaper</item>
-        <item>lock_wallpaper</item>
-        <item>preset</item>
-    </string-array>
-
-    <!-- Monet theme styles  -->
-    <string-array name="monet_engine_style_entries">
-        <item>@string/color_default</item>
-        <item>@string/monet_engine_style_spritz</item>
-        <item>@string/monet_engine_style_tonal_spot</item>
-        <item>@string/monet_engine_style_vibrant</item>
-        <item>@string/monet_engine_style_expressive</item>
-        <item>@string/monet_engine_style_rainbow</item>
-        <item>@string/monet_engine_style_fruit_salad</item>
-        <item>@string/monet_engine_style_content</item>
-        <item>@string/monet_engine_style_monochromatic</item>
-    </string-array>
-
-    <string-array name="monet_engine_style_values" translatable="false">
-        <item>-1</item>
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-    </string-array>
-
-    <!-- Power Modes -->
-    <string-array name="available_power_modes">
-        <item>default</item>
-        <item>conservative</item>
-        <item>powersave</item>
-        <item>performance</item>
-        <item>gameboost</item>
     </string-array>
 
      <!-- Sleep Mode -->
@@ -760,71 +658,6 @@
         <item>1</item>
     </string-array>
 
-    <!-- Network Traffic -->
-    <string-array name="network_traffic_location_entries" translatable="false">
-        <item>@string/network_traffic_location_disable</item>
-        <item>@string/network_traffic_location_statusbar</item>
-        <!--<item>@string/network_traffic_location_quick_statusbar</item>-->
-    </string-array>
-
-    <string-array name="network_traffic_location_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <!--<item>2</item>-->
-    </string-array>
-
-    <string-array name="network_traffic_mode_entries" translatable="false">
-        <item>@string/network_traffic_mode_all</item>
-        <item>@string/network_traffic_mode_up</item>
-        <item>@string/network_traffic_mode_down</item>
-    </string-array>
-
-    <string-array name="network_traffic_mode_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="network_traffic_units_entries" translatable="false">
-        <item>@string/network_traffic_units_bits</item>
-        <item>@string/network_traffic_units_bytes</item>
-    </string-array>
-
-    <string-array name="network_traffic_units_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <!-- Edge light -->
-    <string-array name="edge_light_color_mode_entries" translatable="false">
-        <item>@string/accent_color</item>
-        <item>@string/notification_color</item>
-        <item>@string/wallpaper_color</item>
-        <item>@string/edge_light_rainbow_gradient</item>
-        <item>@string/custom_color</item>
-    </string-array>
-
-    <string-array name="edge_light_color_mode_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-    </string-array>
-    
-    <!-- Edge light Styles -->
-    <string-array name="edge_light_style_entries" translatable="false">
-        <item>@string/edge_light_style_1</item>
-        <item>@string/edge_light_style_2</item>
-    </string-array>
-
-    <string-array name="edge_light_style_values">
-        <item>0</item>
-        <item>1</item>
-    </string-array>
-
     <!-- Lockscreen album art filter -->
     <string-array name="lockscreen_albumart_filter_entries">
         <item>@string/lockscreen_albumart_filter_none</item>
@@ -955,58 +788,6 @@
     <string-array name="qs_brightness_slider_position_values" translatable="false">
         <item>0</item>
         <item>1</item>
-    </string-array>
-
-    <!-- Values for the notification light pulse spinners -->
-    <string-array name="notification_pulse_length_entries" translatable="false">
-        <item>@string/pulse_length_always_on</item>
-        <item>@string/pulse_length_very_short</item>
-        <item>@string/pulse_length_short</item>
-        <item>@string/pulse_length_normal</item>
-        <item>@string/pulse_length_long</item>
-        <item>@string/pulse_length_very_long</item>
-    </string-array>
-
-    <string-array name="notification_pulse_length_values" translatable="false">
-        <item>1</item>
-        <item>250</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>2000</item>
-        <item>5000</item>
-    </string-array>
-
-    <string-array name="notification_pulse_speed_entries" translatable="false">
-        <item>@string/pulse_speed_very_fast</item>
-        <item>@string/pulse_speed_fast</item>
-        <item>@string/pulse_speed_normal</item>
-        <item>@string/pulse_speed_slow</item>
-        <item>@string/pulse_speed_very_slow</item>
-    </string-array>
-
-    <string-array name="notification_pulse_speed_values" translatable="false">
-        <item>250</item>
-        <item>500</item>
-        <item>1000</item>
-        <item>2000</item>
-        <item>5000</item>
-    </string-array>
-
-    <!-- Blink flashlight for incoming calls -->
-    <string-array name="flashlight_on_call_entries">
-        <item>@string/flashlight_on_call_disabled</item>
-        <item>@string/flashlight_on_call_ringer</item>
-        <item>@string/flashlight_on_call_no_ringer</item>
-        <item>@string/flashlight_on_call_silent</item>
-        <item>@string/flashlight_on_call_always</item>
-    </string-array>
-
-    <string-array name="flashlight_on_call_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
     </string-array>
 
     <!-- Screen off animation -->
@@ -1297,27 +1078,6 @@
         <item>custom_app</item>
     </string-array>
 
-    <!-- App lock timeout -->
-    <string-array name="app_lock_timeout_entries">
-        <item>@string/custom_timeout_summary_5secs</item>
-        <item>@string/custom_timeout_summary_10secs</item>
-        <item>@string/custom_timeout_summary_30secs</item>
-        <item>@string/custom_timeout_summary_1min</item>
-        <item>@string/custom_timeout_summary_5mins</item>
-        <item>@string/custom_timeout_summary_10mins</item>
-        <item>@string/custom_timeout_summary_30mins</item>
-    </string-array>
-
-    <string-array name="app_lock_timeout_values" translatable="false">
-        <item>5000</item>
-        <item>10000</item>
-        <item>30000</item>
-        <item>60000</item>
-        <item>300000</item>
-        <item>600000</item>
-        <item>1800000</item>
-    </string-array>
-
     <!-- QS Tiles Style -->
     <string-array name="qs_tile_ui_style_entries">
         <item>@string/color_default</item>
@@ -1551,35 +1311,7 @@
         <item>0</item>
         <item>1</item>
     </string-array>
-    
-    <string-array name="shake_gestures_action_entries">
-        <item>@string/hardware_keys_action_nothing</item>
-        <item>@string/shake_gestures_toggle_flashlight</item>
-        <item>@string/shake_gestures_media_playback</item>
-        <item>@string/shake_gestures_volume_panel</item>
-        <item>@string/shake_gestures_screen_wake</item>
-        <item>@string/shake_gestures_clear_notifs</item>
-        <item>@string/shake_gestures_toggle_ringer</item>
-        <item>@string/shake_gestures_screenshot</item>
-        <item>@string/hardware_keys_action_close_app</item>
-        <item>@string/hardware_keys_action_search</item>
-        <item>@string/hardware_keys_action_voice_search</item>
-    </string-array>
 
-    <string-array name="shake_gestures_action_values" translatable="false">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
-    </string-array>
-    
     <string-array name="display_engine_mode_entries">
         <item>@string/display_engine_default</item>
         <item>@string/triluminous_display_mode_title</item>

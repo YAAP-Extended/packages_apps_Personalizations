@@ -44,13 +44,6 @@
         settings:position="none"/>
 
     <Preference
-        android:key="freeform"
-        android:icon="@drawable/ic_settings_popup_view"
-        android:title="@string/freeform_title"
-        android:summary="@string/freeform_summary"
-        android:fragment="com.custom.settings.fragments.Freeform" />
-
-    <Preference
         android:key="spoofing"
         android:icon="@drawable/ic_cog"
         android:title="@string/spoofing_title"

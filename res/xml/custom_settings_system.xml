@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-     Copyright (C) 2025 the AxionAOSP Project
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2024 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,15 +15,18 @@
 -->
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:title="@string/header_category_system">
+    android:title="@string/system_title">
 
-    <Preference
-        android:key="gestures"
-        android:icon="@drawable/ic_settings_gestures"
-        android:title="@string/gestures_title"
-        android:summary="@string/gestures_title_summary"
-        android:fragment="com.custom.settings.fragments.Gestures" />
+    <PreferenceCategory
+        android:key="pulse_settings"
+        android:title="@string/pulse_settings_title">
+
+        <Preference
+            android:key="pulse_settings"
+            android:title="@string/pulse_settings_title"
+            android:summary="@string/pulse_settings_summary"
+            android:fragment="com.custom.settings.fragments.PulseSettings" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
