@@ -35,13 +35,13 @@
         android:summary="@string/hide_applist_summary"
         android:fragment="com.custom.settings.fragments.HideAppListSettings" />
 
-    <com.android.settings.preferences.GlobalSettingSwitchPreference
+    <!--com.android.settings.preferences.GlobalSettingSwitchPreference
         android:key="window_ignore_secure"
         android:icon="@drawable/ic_custom_settings_privacy"
         android:title="@string/laboratory_ignore_window_secure_title"
         android:summary="@string/laboratory_ignore_window_secure_summary"
         android:defaultValue="false"
-        settings:position="none"/>
+        settings:position="none"/-->
 
     <Preference
         android:key="spoofing"
