@@ -3,63 +3,37 @@
      SPDX-FileCopyrightText: 2022 Paranoid Android
      SPDX-License-Identifier: Apache-2.0
   -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?android:attr/selectableItemBackground"
-    android:gravity="center_vertical"
-    android:minHeight="?android:attr/listPreferredItemHeightSmall"
-    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
-    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="start|center_vertical"
-        android:minWidth="@android:dimen/app_icon_size"
-        android:orientation="horizontal"
-        android:paddingEnd="16dp"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp">
-        <ImageView
-            android:id="@+id/app_icon"
-            android:layout_width="@android:dimen/app_icon_size"
-            android:layout_height="@android:dimen/app_icon_size"/>
-    </LinearLayout>
+    android:orientation="horizontal"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/app_name"
-            android:layout_width="match_parent"
+            android:id="@+id/app_label"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:fadingEdge="horizontal"
-            android:maxLines="2"
-            android:textAppearance="?android:attr/textAppearanceListItem"/>
+            android:textSize="16sp"
+            android:textColor="?android:attr/textColorPrimary" />
 
         <TextView
-            android:id="@+id/package_name"
-            android:layout_width="match_parent"
+            android:id="@+id/app_package"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textDirection="locale"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorSecondary"/>
+            android:textSize="14sp"
+            android:textColor="?android:attr/textColorSecondary" />
     </LinearLayout>
 
     <CheckBox
-        android:id="@+id/check_box"
+        android:id="@+id/app_checkbox"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical|end"
-        android:focusable="false"
-        android:clickable="false" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical" />
 
 </LinearLayout>

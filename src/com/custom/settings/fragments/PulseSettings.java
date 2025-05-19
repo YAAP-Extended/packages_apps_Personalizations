@@ -23,11 +23,11 @@ import android.provider.Settings;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
-import androidx.preference.SwitchPreferenceCompat;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.preferences.ui.AdaptiveSwitchPreference;
 import com.custom.settings.preferences.colorpicker.ColorPickerPreference;
 import static com.custom.settings.preferences.SecureSettingsStore.*;
 
@@ -55,14 +55,62 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private static final String PULSE_SETTINGS_FOOTER = "pulse_settings_footer";
 
-    private SwitchPreferenceCompat mNavbarPulse;
-    private SwitchPreferenceCompat mLockscreenPulse;
-    private SwitchPreferenceCompat mAmbientPulse;
-    private SwitchPreferenceCompat mPulseSmoothing;
-    private Preference mRenderMode;
-    private ListPreference mColorModePref;
-    private ColorPickerPreference mColorPickerPref;
-    private Preference mLavaSpeedPref;
+    private AdaptiveSwitchPreference mNavbarPulse;
+    private AdaptiveSwitchPreference mAmbientPulse;
+    private AdaptiveSwitchPreference mFadingPulse;
+    private AdaptiveSwitchPreference mPulseSmoothing;
+    private ListPreference mPulseColorMode;
+    private ColorPickerPreference mPulseColor;
+    private ListPreference mPulseRenderMode;
+    private Preference mPulseLavaSpeed;
+    private Preference mPulseLavaDensity;
+    private Preference mPulseSolidSpeed;
+    private Preference mPulseSolidDensity;
+    private Preference mPulseFilledBlockSize;
+    private Preference mPulseEmptyBlockSize;
+    private Preference mPulseFilledFadeIn;
+    private Preference mPulseFilledFadeOut;
+    private Preference mPulseEmptyFadeIn;
+    private Preference mPulseEmptyFadeOut;
+    private AdaptiveSwitchPreference mPulseCustomDots;
+    private Preference mPulseCustomDotsValue;
+    private AdaptiveSwitchPreference mPulseCustomDivider;
+    private Preference mPulseCustomDividerValue;
+    private AdaptiveSwitchPreference mPulseShowVolume;
+    private Preference mPulseShowVolumeValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeDots;
+    private Preference mPulseShowVolumeDotsValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeDivider;
+    private Preference mPulseShowVolumeDividerValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeFilled;
+    private Preference mPulseShowVolumeFilledValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeEmpty;
+    private Preference mPulseShowVolumeEmptyValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeFadeIn;
+    private Preference mPulseShowVolumeFadeInValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeFadeOut;
+    private Preference mPulseShowVolumeFadeOutValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeFilledFadeIn;
+    private Preference mPulseShowVolumeFilledFadeInValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeFilledFadeOut;
+    private Preference mPulseShowVolumeFilledFadeOutValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeEmptyFadeIn;
+    private Preference mPulseShowVolumeEmptyFadeInValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeEmptyFadeOut;
+    private Preference mPulseShowVolumeEmptyFadeOutValue;
+    private ListPreference mPulseShowVolumeColorMode;
+    private ColorPickerPreference mPulseShowVolumeColor;
+    private ListPreference mPulseShowVolumeRenderMode;
+    private Preference mPulseShowVolumeLavaSpeed;
+    private Preference mPulseShowVolumeLavaDensity;
+    private Preference mPulseShowVolumeSolidSpeed;
+    private Preference mPulseShowVolumeSolidDensity;
+    private Preference mPulseShowVolumeFilledBlockSize;
+    private Preference mPulseShowVolumeEmptyBlockSize;
+    private AdaptiveSwitchPreference mPulseShowVolumeCustomDots;
+    private Preference mPulseShowVolumeCustomDotsValue;
+    private AdaptiveSwitchPreference mPulseShowVolumeCustomDivider;
+    private Preference mPulseShowVolumeCustomDividerValue;
     private Preference mFooterPref;
 
     private PreferenceCategory mFadingBarsCat;
@@ -76,38 +124,32 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         ContentResolver resolver = getContext().getContentResolver();
 
-        mNavbarPulse = (SwitchPreferenceCompat) findPreference(NAVBAR_PULSE_ENABLED_KEY);
+        mNavbarPulse = (AdaptiveSwitchPreference) findPreference(NAVBAR_PULSE_ENABLED_KEY);
         boolean navbarPulse = Settings.Secure.getIntForUser(resolver,
                 NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-        mNavbarPulse.setChecked(navbarPulse);
+        mNavbarPulse.setEnabled(navbarPulse);
         mNavbarPulse.setOnPreferenceChangeListener(this);
 
-        mLockscreenPulse = (SwitchPreferenceCompat) findPreference(LOCKSCREEN_PULSE_ENABLED_KEY);
-        boolean lockscreenPulse = Settings.Secure.getIntForUser(resolver,
-                LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-        mLockscreenPulse.setChecked(lockscreenPulse);
-        mLockscreenPulse.setOnPreferenceChangeListener(this);
-
-        mAmbientPulse = (SwitchPreferenceCompat) findPreference(AMBIENT_PULSE_ENABLED_KEY);
+        mAmbientPulse = (AdaptiveSwitchPreference) findPreference(AMBIENT_PULSE_ENABLED_KEY);
         boolean ambientPulse = Settings.Secure.getIntForUser(resolver,
                 AMBIENT_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-        mAmbientPulse.setChecked(ambientPulse);
-        mAmbientPulse.setOnPreferenceChangeListener(this); 
+        mAmbientPulse.setEnabled(ambientPulse);
+        mAmbientPulse.setOnPreferenceChangeListener(this);
 
-        mColorModePref = (ListPreference) findPreference(PULSE_COLOR_MODE_KEY);
-        mColorPickerPref = (ColorPickerPreference) findPreference(PULSE_COLOR_MODE_CHOOSER_KEY);
-        mLavaSpeedPref = findPreference(PULSE_COLOR_MODE_LAVA_SPEED_KEY);
-        mColorModePref.setOnPreferenceChangeListener(this);
+        mPulseColorMode = (ListPreference) findPreference(PULSE_COLOR_MODE_KEY);
+        mPulseColor = (ColorPickerPreference) findPreference(PULSE_COLOR_MODE_CHOOSER_KEY);
+        mPulseLavaSpeed = findPreference(PULSE_COLOR_MODE_LAVA_SPEED_KEY);
+        mPulseColorMode.setOnPreferenceChangeListener(this);
 
-        mRenderMode = findPreference(PULSE_RENDER_MODE_KEY);
-        mRenderMode.setOnPreferenceChangeListener(this);
+        mPulseRenderMode = (ListPreference) findPreference(PULSE_RENDER_MODE_KEY);
+        mPulseRenderMode.setOnPreferenceChangeListener(this);
 
         mFadingBarsCat = (PreferenceCategory) findPreference(
                 PULSE_RENDER_CATEGORY_FADING);
         mSolidBarsCat = (PreferenceCategory) findPreference(
                 PULSE_RENDER_CATEGORY_SOLID);
 
-        mPulseSmoothing = (SwitchPreferenceCompat) findPreference(PULSE_SMOOTHING_KEY);
+        mPulseSmoothing = (AdaptiveSwitchPreference) findPreference(PULSE_SMOOTHING_KEY);
 
         mFooterPref = findPreference(PULSE_SETTINGS_FOOTER);
         mFooterPref.setTitle(R.string.pulse_help_policy_notice_summary);
@@ -124,22 +166,16 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 NAVBAR_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
             updateAllPrefs();
             return true;
-        } else if (preference == mLockscreenPulse) {
-            boolean val = (Boolean) newValue;
-            Settings.Secure.putIntForUser(resolver,
-                LOCKSCREEN_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
-            updateAllPrefs();
-            return true;
         } else if (preference == mAmbientPulse) {
             boolean val = (Boolean) newValue;
             Settings.Secure.putIntForUser(resolver,
                 AMBIENT_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
             updateAllPrefs();
             return true;
-        } else if (preference == mColorModePref) {
+        } else if (preference == mPulseColorMode) {
             updateColorPrefs(Integer.valueOf(String.valueOf(newValue)));
             return true;
-        } else if (preference == mRenderMode) {
+        } else if (preference == mPulseRenderMode) {
             updateRenderCategories(Integer.valueOf(String.valueOf(newValue)));
             return true;
         }
@@ -148,63 +184,43 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private void updateAllPrefs() {
         ContentResolver resolver = getContext().getContentResolver();
-
         boolean navbarPulse = Settings.Secure.getIntForUser(resolver,
                 NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
-        boolean lockscreenPulse = Settings.Secure.getIntForUser(resolver,
-                LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
         boolean ambientPulse = Settings.Secure.getIntForUser(resolver,
                 AMBIENT_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
 
-        mPulseSmoothing.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
+        mNavbarPulse.setEnabled(navbarPulse);
+        mAmbientPulse.setEnabled(ambientPulse);
 
-        mColorModePref.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
-        if (navbarPulse || lockscreenPulse || ambientPulse) {
-            int colorMode = Settings.Secure.getIntForUser(resolver,
+        int colorMode = Settings.Secure.getIntForUser(resolver,
                 PULSE_COLOR_MODE, COLOR_TYPE_LAVALAMP, UserHandle.USER_CURRENT);
-            updateColorPrefs(colorMode);
-        } else {
-            mColorPickerPref.setEnabled(false);
-            mLavaSpeedPref.setEnabled(false);
-        }
+        updateColorPrefs(colorMode);
 
-        mRenderMode.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
-        if (navbarPulse || lockscreenPulse || ambientPulse) {
-            int renderMode = Settings.Secure.getIntForUser(resolver,
+        int renderMode = Settings.Secure.getIntForUser(resolver,
                 PULSE_RENDER_STYLE, RENDER_STYLE_SOLID_LINES, UserHandle.USER_CURRENT);
-            updateRenderCategories(renderMode);
-        } else {
-            mFadingBarsCat.setEnabled(false);
-            mSolidBarsCat.setEnabled(false);
-        }
-
-        mFooterPref.setEnabled(navbarPulse || lockscreenPulse || ambientPulse);
+        updateRenderCategories(renderMode);
     }
 
-    private void updateColorPrefs(int val) {
-        switch (val) {
-            case COLOR_TYPE_ACCENT:
-                mColorPickerPref.setEnabled(false);
-                mLavaSpeedPref.setEnabled(false);
-                break;
-            case COLOR_TYPE_USER:
-                mColorPickerPref.setEnabled(true);
-                mLavaSpeedPref.setEnabled(false);
-                break;
-            case COLOR_TYPE_LAVALAMP:
-                mColorPickerPref.setEnabled(false);
-                mLavaSpeedPref.setEnabled(true);
-                break;
-            case COLOR_TYPE_AUTO:
-                mColorPickerPref.setEnabled(false);
-                mLavaSpeedPref.setEnabled(false);
-                break;
-        }
+    private void updateColorPrefs(int colorMode) {
+        ContentResolver resolver = getContext().getContentResolver();
+        boolean navbarPulse = Settings.Secure.getIntForUser(resolver,
+                NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        boolean ambientPulse = Settings.Secure.getIntForUser(resolver,
+                AMBIENT_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+
+        mPulseColor.setEnabled((colorMode == COLOR_TYPE_USER) && (navbarPulse || ambientPulse));
+        mPulseLavaSpeed.setEnabled((colorMode == COLOR_TYPE_LAVALAMP) && (navbarPulse || ambientPulse));
     }
 
-    private void updateRenderCategories(int mode) {
-        mFadingBarsCat.setEnabled(mode == RENDER_STYLE_FADING_BARS);
-        mSolidBarsCat.setEnabled(mode == RENDER_STYLE_SOLID_LINES);
+    private void updateRenderCategories(int renderMode) {
+        ContentResolver resolver = getContext().getContentResolver();
+        boolean navbarPulse = Settings.Secure.getIntForUser(resolver,
+                NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        boolean ambientPulse = Settings.Secure.getIntForUser(resolver,
+                AMBIENT_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+
+        mFadingBarsCat.setEnabled((renderMode == RENDER_STYLE_FADING_BARS) && (navbarPulse || ambientPulse));
+        mSolidBarsCat.setEnabled((renderMode == RENDER_STYLE_SOLID_LINES) && (navbarPulse || ambientPulse));
     }
 
     @Override

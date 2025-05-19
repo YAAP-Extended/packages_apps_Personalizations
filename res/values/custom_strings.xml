@@ -640,10 +640,6 @@
     <!-- Summary for Wellbeing screen time usage. [CHAR LIMIT=NONE] -->
     <string name="screen_time_summary_usage_today">%1$s today</string>
 
-    <!-- Statusbar categories -->
-    <string name="status_bar_icons_category_title">Icons</string>
-    <string name="status_bar_battery_category_title">Battery customizations</string>
-
     <!-- Gestures -->
     <string name="gestures_title">Gestures</string>
     <string name="gestures_title_summary">Use gestures to perform device actions</string>
@@ -899,56 +895,6 @@
     <string name="clock_font_size_title">Clock font size</string>
     <string name="status_bar_clock_show_seconds_title">Show seconds</string>
     <string name="status_bar_clock_show_seconds_summary">Show hours, minutes, and seconds</string>
-
-    <!-- Status bar - Battery -->
-    <string name="status_bar_battery_style_title">Battery style</string>
-    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
-    <string name="status_bar_battery_style_icon_rlandscape">Icon landscape (Right)</string>
-    <string name="status_bar_battery_style_icon_landscape">Icon landscape (Left)</string>
-    <string name="status_bar_battery_style_circle">Circle</string>
-    <string name="status_bar_battery_style_dotted_circle">Dotted circle</string>
-    <string name="status_bar_battery_style_filled_circle">Filled circle</string>
-    <string name="status_bar_battery_style_text">Text</string>
-    <string name="status_bar_battery_style_hidden">Hidden</string>
-    <string name="status_bar_battery_percent_title">Battery percent</string>
-    <string name="status_bar_battery_percent_hidden">Hidden</string>
-    <string name="status_bar_battery_percent_text_inside">Inside the icon</string>
-    <string name="status_bar_battery_percent_text_next_right">Next to the icon (right)</string>
-    <string name="status_bar_battery_percent_text_next_left">Next to the icon (left)</string>
-    <string name="status_bar_battery_text_charging_title">Battery percentage when charging</string>
-    <string name="status_bar_battery_text_charging_summary">Always display battery percentage when charging</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_a">Landscape R Style A</string>
-    <string name="status_bar_battery_style_icon_landscape_style_a">Landscape L Style A</string>
-    <string name="status_bar_battery_style_icon_rlandscape_style_b">Landscape R Style B</string>
-    <string name="status_bar_battery_style_icon_landscape_style_b">Landscape L Style B</string>
-    <string name="status_bar_battery_style_icon_landscape_pill">Portrait Mx</string>
-    <string name="status_bar_battery_style_icon_landscape_line">Landscape Lorn</string>
-    <string name="status_bar_battery_style_icon_landscape_musku">Portrait IOS</string>
-    <string name="status_bar_battery_style_icon_landscape_signal">Landscape Airoo</string>
-    <string name="status_bar_battery_style_icon_landscape_buddy">Landscape Capsule</string>
-    <string name="status_bar_battery_style_icon_landscape_ios15">Landscape iOS 15</string>
-    <string name="status_bar_battery_style_icon_landscape_ios16">Landscape iOS 16</string>
-    <string name="status_bar_battery_style_icon_landscape_origami">Landscape Origami</string>
-    <string name="status_bar_battery_style_icon_landscape_miui_pill">Landscape MiUI Pill</string>
-
-    <!-- Status bar - Battery Bar -->
-    <string name="battery_bar_title">Battery bar</string>
-    <string name="battery_bar_summary">Display and customize battery bar above status bar</string>
-    <string name="battery_bar_color">Color</string>
-    <string name="battery_bar_charging_color">Charging color</string>
-    <string name="battery_bar_battery_low_color">Low battery color</string>
-    <string name="battery_bar_style_title">Alignment</string>
-    <string name="battery_bar_thickness_title">Thickness</string>
-    <string name="battery_bar_animate_title">Charging animation</string>
-    <string name="battery_bar_style_regular">Regular</string>
-    <string name="battery_bar_style_center_mirrored">Center-mirrored</string>
-    <string name="battery_bar_style_reversed">Reversed</string>
-    <string name="battery_bar_use_charging_color">Custom charging color</string>
-    <string name="battery_bar_blend_color_title">Blend colors</string>
-    <string name="battery_bar_blend_color_summary">Blend full/empty colors corresponding to battery percentage</string>
-    <string name="battery_bar_blend_color_reverse_title">Reverse color direction</string>
-    <string name="battery_bar_blend_color_reverse_summary_off">Full &#8594; empty: red &#8592; green &#8592; blue &#8592; red</string>
-    <string name="battery_bar_blend_color_reverse_summary_on">Full &#8594; empty: red &#8594; green &#8594; blue &#8594; red</string>
 
     <!-- Quick setting categories -->
     <string name="qs_misc_category">Miscellaneous</string>

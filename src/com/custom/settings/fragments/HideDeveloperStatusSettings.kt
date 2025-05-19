@@ -146,6 +146,7 @@ class HideDeveloperStatusSettings : Fragment(R.layout.hide_developer_status_layo
         override fun onQueryTextSubmit(query: String) = false
 
         override fun onQueryTextChange(newText: String): Boolean {
+          if (!isAdded()) return false
           searchText = newText
           refreshList()
           return true
@@ -209,39 +210,43 @@ class HideDeveloperStatusSettings : Fragment(R.layout.hide_developer_status_layo
   }
 
   private fun refreshList() {
+    if (!isAdded()) return
     var list =
       packageList
         .filter {
           if (!showSystem) {
-            !(it.applicationInfo?.isSystemApp() ?: false) &&
+            !it.applicationInfo!!.isSystemApp() &&
               !resources
                 .getStringArray(R.array.hide_developer_status_hidden_apps)
                 .asList()
-                .contains(it.applicationInfo?.packageName) &&
-              !(it.applicationInfo?.packageName?.contains("android.settings") ?: false)
+                .contains(it.applicationInfo!!.packageName) &&
+              !it.applicationInfo!!.packageName.contains("android.settings")
           } else {
             !resources
               .getStringArray(R.array.hide_developer_status_hidden_apps)
               .asList()
-              .contains(it.applicationInfo?.packageName) &&
-              !(it.applicationInfo?.packageName?.contains("android.settings") ?: false) &&
-              !(it.applicationInfo?.isResourceOverlay() ?: false)
+              .contains(it.applicationInfo!!.packageName) &&
+              !it.applicationInfo!!.packageName.contains("android.settings")
           }
         }
         .filter { getLabel(it).contains(searchText, true) }
-    list = customFilter?.let { customFilter -> list.filter { customFilter(it) } } ?: list
-    list =
-      comparator?.let { list.sortedWith(it) }
-        ?: list.sortedWith { a, b -> getLabel(a).compareTo(getLabel(b)) }
-    if (::adapter.isInitialized) adapter.submitList(list.map { appInfoFromPackageInfo(it) })
+
+    if (customFilter != null) {
+      list = list.filter { customFilter!!(it) }
+    }
+    if (comparator != null) {
+      list = list.sortedWith { a, b -> comparator!!(a, b) }
+    }
+    adapter.submitList(list.map { appInfoFromPackageInfo(it) })
   }
 
-  private fun appInfoFromPackageInfo(packageInfo: PackageInfo) =
-    AppInfo(
-      packageInfo.packageName,
+  private fun appInfoFromPackageInfo(packageInfo: PackageInfo): AppInfo {
+    return AppInfo(
+      packageInfo.applicationInfo!!.packageName,
       getLabel(packageInfo),
-      packageInfo.applicationInfo?.loadIcon(packageManager)!!,
+      packageInfo.applicationInfo!!.isSystemApp()
     )
+  }
 
   private fun getLabel(packageInfo: PackageInfo) =
     packageInfo.applicationInfo?.loadLabel(packageManager).toString()
@@ -259,7 +264,6 @@ class HideDeveloperStatusSettings : Fragment(R.layout.hide_developer_status_layo
       getItem(position).let {
         holder.label.text = it.label
         holder.packageName.text = it.packageName
-        holder.icon.setImageDrawable(it.icon)
         holder.itemView.setOnClickListener {
           if (selectedIndices.contains(position)) {
             selectedIndices.remove(position)
@@ -292,7 +296,11 @@ class HideDeveloperStatusSettings : Fragment(R.layout.hide_developer_status_layo
     val checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
   }
 
-  private data class AppInfo(val packageName: String, val label: String, val icon: Drawable)
+  data class AppInfo(
+    val packageName: String,
+    val label: String,
+    val isSystemApp: Boolean
+  )
 
   companion object {
     private val itemCallback =

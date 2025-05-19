@@ -18,7 +18,7 @@
     android:title="@string/system_title">
 
     <PreferenceCategory
-        android:key="pulse_settings"
+        android:key="pulse_settings_category"
         android:title="@string/pulse_settings_title">
 
         <Preference
