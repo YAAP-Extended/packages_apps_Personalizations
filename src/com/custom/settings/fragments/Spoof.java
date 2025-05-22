@@ -44,8 +44,10 @@ public class Spoof extends SettingsPreferenceFragment implements Preference.OnPr
 
     public static final String TAG = "Spoof";
     private static final String SYS_GPHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
+    private static final String SYS_VENDING_32_SPOOF = "persist.sys.spoof.vending_sdk32";
 
     private Preference mGphotosSpoof;
+    private SystemPropertySwitchPreference mVending32Spoof;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,11 +58,16 @@ public class Spoof extends SettingsPreferenceFragment implements Preference.OnPr
         if (mGphotosSpoof != null) {
             mGphotosSpoof.setOnPreferenceChangeListener(this);
         }
+
+        mVending32Spoof = findPreference(SYS_VENDING_32_SPOOF);
+        if (mVending32Spoof != null) {
+            mVending32Spoof.setOnPreferenceChangeListener(this);
+        }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mGphotosSpoof) {
+        if (preference == mGphotosSpoof || preference == mVending32Spoof) {
             SystemRestartUtils.showSystemRestartDialog(getContext());
             return true;
         }
