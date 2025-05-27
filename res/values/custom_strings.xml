@@ -65,11 +65,6 @@
     <string name="prevent_ringing_option_cycle">Cycle through modes</string>
     <string name="prevent_ringing_option_cycle_summary">On (cycle through modes)</string>
 
-    <!-- Tensor spoof -->
-    <string name="tensor_spoof_title">Spoof tensor features</string>
-    <string name="tensor_spoof_summary">Unlock tensor/pixel features</string>
-    <string name="tensor_spoof_option_disabled">Tensor features are always enabled on this device</string>
-
     <!-- AOD Settings -->
     <string name="aod_display_category_title">Always-On-Display</string>
     <string name="aod_pulse_category_title">Pulse/Doze</string>
@@ -301,24 +296,10 @@
     <string name="boot_animation_styles_title">Bootanimation</string>
     <string name="boot_animation_applied">Bootanimation applied</string>
 
-    <!-- Play Integrit Fix JSON Update -->
-    <string name="toast_spoofing_success">Successfully downloaded pif.json. Spoofing as %1$s for play integrity.</string>
-    <string name="toast_spoofing_failure">Failed to spoof properties.</string>
-    <string name="update_pif_json_title">Update Play Integrity Fix</string>
-    <string name="update_pif_json_summary">Update PIF spoofing device, requires internet connection.</string>
-    <string name="show_pif_properties_title">Play Integrity Fix properties</string>
-    <string name="show_pif_properties_summary">Show all currently set PIF properties</string>
-    <string name="error_loading_properties">Error loading PIF properties</string>
-
     <!-- Black themes for dark mode -->
     <string name="black_theme_style_title">Black theme styles</string>
     <string name="black_theme_style_berry">Berry black</string>
     <string name="black_theme_style_amoled">True amoled dark</string>
-
-    <!-- Spoofing redirect to wiki -->
-    <string name="help_section_title">Help and Support</string>
-    <string name="help_footer_title">Spoofing Guides</string>
-    <string name="help_footer_summary">Visit our wiki for detailed guides and support.</string>
 
     <!-- Hide developer status -->
     <string name="hide_developer_status_title">Hide developer status</string>
@@ -339,19 +320,6 @@
     <!-- No storage restrict -->
     <string name="no_storage_restrict_title">No storage restrict</string>
     <string name="no_storage_restrict_summary">Remove the restriction when selecting folders through Storage Access Framework.</string>
-
-    <!-- Power Modes -->
-    <string name="device_power_mode">Power Mode</string>
-
-    <!-- Per-app spoofing -->
-    <string name="gameprops_title">Enable Per-app spoofing</string>
-    <string name="gameprops_summary">Enables per-app spoofing options within the PixelProps</string>
-    <string name="gameprops_load_json_title">Select Per-app Props JSON File</string>
-    <string name="gameprops_load_json_summary">Pick Per-app JSON file to be used for spoofing games</string>
-
-    <!-- PIF spoofing -->
-    <string name="pif_spoofing_title">Select PIF JSON File</string>
-    <string name="pif_spoofing_summary">Pick PIF JSON file to be used for spoofing play integrity</string>
 
     <!-- AOD custom image -->
     <string name="lockscreen_custom_image_enabled_title">Enable Lockscreen AOD image</string>
@@ -493,7 +461,6 @@
     <string name="themes_title">Themes</string>
     <string name="themes_summary">Your device, your style</string>
     <string name="colors_summary">Show your true colours</string>
-    <string name="spoofing_title">Spoofing</string>
     <string name="spoofing_title_summary">Spoof as different device to unlock application features</string>
     <string name="security_title">Security</string>
     <string name="security_summary">Configure privacy and security related features</string>
@@ -1224,19 +1191,6 @@
     <string name="display_cutout_force_fullscreen_summary">Force apps to ignore notch space</string>
     <string name="display_cutout_force_fullscreen_no_apps">No apps</string>
 
-    <!-- Unlimited google photos storage -->
-    <string name="use_photos_spoof_title">Unlimited Photos storage</string>
-    <string name="use_photos_spoof_summary">Spoof your device as Pixel XL for Google Photos app only to provide unlimited storage for backup</string>
-
-    <string name="spoofing_vending_32_title">(EXP)Spoof playstore to SDK 32</string>
-    <string name="spoofing_vending_32_summary">Spoof playstore to SDK 32 to get legacy attestation</string>
-
-    <!-- Unlock FPS for specific games -->
-    <string name="use_games_spoof_title">Unlock higher FPS in games</string>
-    <string name="use_games_spoof_summary">Spoof your device as different model for specific games to unlock higher FPS</string>
-
-    <string name="spoof_option_disabled">Disabling PixelProps spoofing is not supported by current device</string>
-
     <!-- Volume panel -->
     <string name="volume_panel_category">Volume panel</string>
     <string name="volume_dialog_timeout_title">Volume panel timeout</string>
@@ -1608,10 +1562,6 @@
     <string name="floating_rotation_button_title">Floating rotate button</string>
     <string name="floating_rotation_button_summary">Show a floating rotate button when device is rotated</string>
 
-    <!-- Netflix Spoof -->
-    <string name="netflix_spoof_title">Netflix spoof</string>
-    <string name="netflix_spoof_summary">Spoof your device as different model for Netflix</string>
-
     <!-- Captive portal -->
     <string name="captive_portal_title">Connectivity check</string>
     <string name="captive_portal_summary">Determine if the device can connect to the internet, by contacting Google. Also used to detect captive portals.</string>
@@ -1886,24 +1836,9 @@
     <string name="search_bar_style_title">Search Bar Style</string>
     <string name="settings_sb_style_1">Android 15 (Revamped)</string>
 
-    <!-- GMS Spoof -->
-    <string name="gms_spoof_title">Enable GMS spoof</string>
-    <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation</string>
-    <string name="entryhooks_title">Enable Keybox spoofing</string>
-    <string name="entryhooks_summary">Spoof device keybox to pass Play Integrity</string>
-
     <!-- QS Bluetooth auto on -->
     <string name="qs_bt_auto_on_title">Automatic Bluetooth on</string>
     <string name="qs_bt_auto_on_summary">Always turn on Bluetooth when pressing the Bluetooth QS tile</string>
-
-    <!-- Enable all props -->
-    <string name="all_props_title">Enable spoof options</string>
-    <string name="all_props_summary">Enables all the spoof options within the PixelProps</string>
-
-    <!-- Spoof google app props -->
-    <string name="google_spoof_title">Spoof google apps</string>
-    <string name="google_spoof_summary">Spoof a few google apps to latest pixel device</string>
-    <string name="google_spoof_option_disabled">Enabling Google apps spoofing is not needed by current device</string>
 
     <!-- Backup/Restore settings -->
     <string name="backup_restore_title">Backup and Restore</string>
@@ -1958,5 +1893,43 @@
     <!-- System Settings -->
     <string name="system_title">System Settings</string>
     <string name="pulse_settings_title">Pulse Settings</string>
+
+    <!-- Miscellaneous -->
+    <string name="miscellaneous_spoofing_category">Spoofing</string>
+
+    <!-- Miscellaneous/Spoofing -->
+    <string name="spoofing_title">Component spoofing</string>
+    <string name="spoofing_summary">Bypass app restrictions by spoofing components</string>
+    <string name="spoofing_system_wide_category">System-Wide</string>
+    <string name="spoofing_pixel_props_title">Pixel props</string>
+    <string name="spoofing_pixel_props_summary">Spoof a select group of Google apps to the latest Pixel device</string>
+    <string name="tensor_spoof_title">Spoof tensor features</string>
+    <string name="tensor_spoof_summary">Unlock tensor/pixel features</string>
+    <string name="gms_spoof_title">Play Integrity fix</string>
+    <string name="gms_spoof_summary">Spoof your device to pass Google Play Attestation (not applicable to sandboxed gapps)</string>
+    <string name="spoofing_app_specific_category">App-Specific</string>
+    <string name="spoofing_vending_title">Play Store spoof</string>
+    <string name="spoofing_vending_summary">Spoof the Play Store to the latest Pixel device</string>
+    <string name="spoofing_photos_title">Google Photos spoof</string>
+    <string name="spoofing_photos_summary">Spoof the Google Photos app as a Pixel XL</string>
+    <string name="spoofing_snap_title">Snapchat spoof</string>
+    <string name="spoofing_snap_summary">Spoof Snapchat as a Pixel XL to fix possible chat issues</string>
+
+    <!-- Miscellaneous/Spoofing/Play Integrity fix JSON update -->
+    <string name="toast_spoofing_success">Successfully downloaded pif.json. Spoofing as %1$s for Play Integrity.</string>
+    <string name="toast_spoofing_failure">Failed to spoof properties.</string>
+    <string name="update_pif_json_title">Update Play Integrity fix</string>
+    <string name="update_pif_json_summary">Update PIF spoofing device, requires internet connection.</string>
+    <string name="show_pif_properties_title">Play Integrity fix properties</string>
+    <string name="show_pif_properties_summary">Show all currently set PIF properties</string>
+    <string name="error_loading_properties">Error loading PIF properties</string>
+    <string name="pif_spoofing_title">Select PIF JSON file</string>
+    <string name="pif_spoofing_summary">Choose the PIF JSON file to be used to spoof Play Integrity</string>
+
+    <!-- Miscellaneous/Spoofing/Per-app spoofing -->
+    <string name="gameprops_title">Enable per-app game spoof</string>
+    <string name="gameprops_summary">Enables per-app game spoofing options</string>
+    <string name="gameprops_load_json_title">Select per-app game props JSON file</string>
+    <string name="gameprops_load_json_summary">Choose the JSON file to be used to spoof more games</string>
 
 </resources>
