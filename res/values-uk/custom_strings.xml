@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spoofing -->
+    <string name="spoofing_title">Підміна пристрою</string>
+    <string name="spoofing_system_wide_category">Системні налаштування</string>
+    <string name="spoofing_app_specific_category">Налаштування додатків</string>
+
+    <!-- GMS spoof -->
+    <string name="gms_spoof_title">Підміна GMS</string>
+    <string name="gms_spoof_summary">Підміна пристрою для Google Play Services</string>
+    <string name="show_pif_properties_title">Показати властивості PIF</string>
+    <string name="show_pif_properties_summary">Показати поточні властивості підміни пристрою</string>
+    <string name="update_pif_json_title">Оновити PIF JSON</string>
+    <string name="update_pif_json_summary">Завантажити та застосувати останній PIF JSON</string>
+    <string name="pif_spoofing_title">PIF підміна</string>
+    <string name="pif_spoofing_summary">Налаштувати властивості підміни пристрою</string>
+
+    <!-- Pixel props -->
+    <string name="spoofing_pixel_props_title">Підміна Pixel</string>
+    <string name="spoofing_pixel_props_summary">Підміна пристрою як Pixel</string>
+
+    <!-- Tensor features -->
+    <string name="tensor_spoof_title">Функції Tensor</string>
+    <string name="tensor_spoof_summary">Увімкнути функції Tensor на непідтримуваних пристроях</string>
+
+    <!-- Play Store -->
+    <string name="spoofing_vending_title">Підміна Play Store</string>
+    <string name="spoofing_vending_summary">Підміна пристрою для Google Play Store</string>
+
+    <!-- Google Photos -->
+    <string name="spoofing_photos_title">Підміна Google Photos</string>
+    <string name="spoofing_photos_summary">Підміна пристрою для Google Photos</string>
+
+    <!-- Games FPS -->
+    <string name="gameprops_title">Підміна ігор</string>
+    <string name="gameprops_summary">Підміна пристрою для ігор</string>
+    <string name="gameprops_load_json_title">Завантажити JSON для ігор</string>
+    <string name="gameprops_load_json_summary">Завантажити та застосувати JSON для підміни ігор</string>
+
+    <!-- Snapchat -->
+    <string name="spoofing_snap_title">Підміна Snapchat</string>
+    <string name="spoofing_snap_summary">Підміна пристрою для Snapchat</string>
+
+    <!-- Toast messages -->
+    <string name="toast_spoofing_success">Підміну пристрою успішно застосовано: %1$s</string>
+    <string name="toast_spoofing_failure">Помилка при застосуванні підміни пристрою</string>
+    <string name="error_loading_properties">Помилка завантаження властивостей</string>
+
+    <!-- Hide Developer Status -->
+    <string name="hide_developer_status_title">Приховати статус розробника</string>
+    <string name="hide_developer_status_summary">Приховати статус розробника від додатків</string>
+
+    <!-- Hide App List -->
+    <string name="hide_applist_title">Приховати список додатків</string>
+    <string name="hide_applist_summary">Заборонити додаткам перевіряти вибрані додатки зі списку</string>
+
+    <!-- Play Store Spoof -->
+    <string name="spoofing_vending_sdk32_title">Підміна SDK32 для Play Store</string>
+    <string name="spoofing_vending_sdk32_summary">Увімкнути підміну SDK32 для Play Store</string>
+</resources>

@@ -1932,4 +1932,7 @@
     <string name="gameprops_load_json_title">Select per-app game props JSON file</string>
     <string name="gameprops_load_json_summary">Choose the JSON file to be used to spoof more games</string>
 
+    <!-- Play Store Spoof -->
+    <string name="spoofing_vending_sdk32_title">Play Store SDK32 Spoofing</string>
+    <string name="spoofing_vending_sdk32_summary">Enable SDK32 spoofing for Play Store</string>
 </resources>

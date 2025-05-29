@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Spoofing -->
+    <string name="spoofing_title">Подмена устройства</string>
+    <string name="spoofing_system_wide_category">Системные настройки</string>
+    <string name="spoofing_app_specific_category">Настройки приложений</string>
+
+    <!-- GMS spoof -->
+    <string name="gms_spoof_title">Подмена GMS</string>
+    <string name="gms_spoof_summary">Подмена устройства для Google Play Services</string>
+    <string name="show_pif_properties_title">Показать свойства PIF</string>
+    <string name="show_pif_properties_summary">Показать текущие свойства подмены устройства</string>
+    <string name="update_pif_json_title">Обновить PIF JSON</string>
+    <string name="update_pif_json_summary">Загрузить и применить последний PIF JSON</string>
+    <string name="pif_spoofing_title">PIF подмена</string>
+    <string name="pif_spoofing_summary">Настроить свойства подмены устройства</string>
+
+    <!-- Pixel props -->
+    <string name="spoofing_pixel_props_title">Подмена Pixel</string>
+    <string name="spoofing_pixel_props_summary">Подмена устройства как Pixel</string>
+
+    <!-- Tensor features -->
+    <string name="tensor_spoof_title">Функции Tensor</string>
+    <string name="tensor_spoof_summary">Включить функции Tensor на неподдерживаемых устройствах</string>
+
+    <!-- Play Store -->
+    <string name="spoofing_vending_title">Подмена Play Store</string>
+    <string name="spoofing_vending_summary">Подмена устройства для Google Play Store</string>
+
+    <!-- Google Photos -->
+    <string name="spoofing_photos_title">Подмена Google Photos</string>
+    <string name="spoofing_photos_summary">Подмена устройства для Google Photos</string>
+
+    <!-- Games FPS -->
+    <string name="gameprops_title">Подмена игр</string>
+    <string name="gameprops_summary">Подмена устройства для игр</string>
+    <string name="gameprops_load_json_title">Загрузить JSON для игр</string>
+    <string name="gameprops_load_json_summary">Загрузить и применить JSON для подмены игр</string>
+
+    <!-- Snapchat -->
+    <string name="spoofing_snap_title">Подмена Snapchat</string>
+    <string name="spoofing_snap_summary">Подмена устройства для Snapchat</string>
+
+    <!-- Toast messages -->
+    <string name="toast_spoofing_success">Подмена устройства успешно применена: %1$s</string>
+    <string name="toast_spoofing_failure">Ошибка при применении подмены устройства</string>
+    <string name="error_loading_properties">Ошибка загрузки свойств</string>
+
+    <!-- Hide Developer Status -->
+    <string name="hide_developer_status_title">Скрыть статус разработчика</string>
+    <string name="hide_developer_status_summary">Скрыть статус разработчика от приложений</string>
+
+    <!-- Hide App List -->
+    <string name="hide_applist_title">Скрыть список приложений</string>
+    <string name="hide_applist_summary">Запретить приложениям проверять выбранные приложения из списка</string>
+
+    <!-- Play Store Spoof -->
+    <string name="spoofing_vending_sdk32_title">Подмена SDK32 для Play Store</string>
+    <string name="spoofing_vending_sdk32_summary">Включить подмену SDK32 для Play Store</string>
+</resources>
