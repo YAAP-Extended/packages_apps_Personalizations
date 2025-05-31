@@ -19,35 +19,6 @@ package com.custom.settings.preferences;
 import android.provider.Settings;
 
 public final class SecureSettingsStore {
-    /**
-     * Whether to show pulse in navigation bar
-     * @hide
-     */
-    public static final String NAVBAR_PULSE_ENABLED = "navbar_pulse_enabled";
-
-    /**
-     * Whether to show pulse on lockscreen
-     * @hide
-     */
-    public static final String LOCKSCREEN_PULSE_ENABLED = "lockscreen_pulse_enabled";
-
-    /**
-     * Whether to show pulse on ambient display
-     * @hide
-     */
-    public static final String AMBIENT_PULSE_ENABLED = "ambient_pulse_enabled";
-
-    /**
-     * Pulse color mode
-     * @hide
-     */
-    public static final String PULSE_COLOR_MODE = "pulse_color_mode";
-
-    /**
-     * Pulse render style
-     * @hide
-     */
-    public static final String PULSE_RENDER_STYLE = "pulse_render_style";
 
     private SecureSettingsStore() {
         // Prevent instantiation
