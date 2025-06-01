@@ -24,12 +24,4 @@
         android:summary="@string/misc_settings_summary"
         android:fragment="com.custom.settings.fragments.Misc" />
 
-    <Preference
-        android:key="system"
-        android:icon="@drawable/ic_custom_settings_system_dashboard_white"
-        android:summary="@string/system_settings_summary"
-        android:title="@string/header_category_system"
-        android:fragment="com.custom.settings.fragments.System" />
-
-
 </PreferenceScreen> 
